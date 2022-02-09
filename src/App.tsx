@@ -8,7 +8,7 @@ function App() {
   const [actionData] = useState([
     ['Hold', 'Press', 'Touch', 'Kiss', 'Touch', 'Show'],
     ['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Show'],
-    ['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Show'],
+    ['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Grab'],
   ])
   const [objectData] = useState([
     ['Thigh', 'Navel', 'Hands', 'Lips', 'Ears', 'Neck'],

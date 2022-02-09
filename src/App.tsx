@@ -41,16 +41,19 @@ function App() {
             {darkMode ? 'Light mode' : 'Dark mode'}
             {' | '}
           </span>
-          <span
-            className="text-sm font-semibold px-2"
-            onClick={() => {
-              setDarkMode(!darkMode)
-            }}
-          >
+          <span className="text-sm font-semibold px-2">
             follow me:{' '}
-            <a href="https://instagram.com/hsblhsn" target="_blank">
+            <a href="https://instagram.com/hsblhsn" target="_blank" className="underline">
               @hsblhsn
             </a>
+            {' | '}
+          </span>
+          <span className="text-sm font-semibold px-2">
+            source code:{' '}
+            <a href="https://github.com/hsblhsn/valendice" target="_blank" className="underline">
+              GitHub
+            </a>
+            .
           </span>
         </div>
         <div className="flex h-screen w-screen bg-inherit">

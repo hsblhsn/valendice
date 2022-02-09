@@ -5,7 +5,6 @@ class Die extends Component {
     super(props)
     this.state = {
       currentValue: props.defaultRoll || 6,
-      values: props.values || ['', '', '', '', '', ''],
     }
     this.rollDie = this.rollDie.bind(this)
   }
@@ -117,22 +116,22 @@ class Die extends Component {
       >
         <div className={`die roll${this.getValue()}`} ref={(die) => (this.die = die)} style={rollStyle}>
           <div className="face six" style={Object.assign({}, faceStyle, f6Style)}>
-            <div className="face-value text-center py-12">{this.state.values[5]}</div>
+            <div className="face-value text-center py-12">{this.props.values[5]}</div>
           </div>
           <div className="face one" style={Object.assign({}, faceStyle, f1Style)}>
-            <div className="face-value text-center py-12">{this.state.values[0]}</div>
+            <div className="face-value text-center py-12">{this.props.values[0]}</div>
           </div>
           <div className="face five" style={Object.assign({}, faceStyle, f5Style)}>
-            <div className="face-value text-center py-12">{this.state.values[4]}</div>
+            <div className="face-value text-center py-12">{this.props.values[4]}</div>
           </div>
           <div className="face two" style={Object.assign({}, faceStyle, f2Style)}>
-            <div className="face-value text-center py-12">{this.state.values[1]}</div>
+            <div className="face-value text-center py-12">{this.props.values[1]}</div>
           </div>
           <div className="face three" style={Object.assign({}, faceStyle, f3Style)}>
-            <div className="face-value text-center py-12">{this.state.values[2]}</div>
+            <div className="face-value text-center py-12">{this.props.values[2]}</div>
           </div>
           <div className="face four" style={Object.assign({}, faceStyle, f4Style)}>
-            <div className="face-value text-center py-12">{this.state.values[3]}</div>
+            <div className="face-value text-center py-12">{this.props.values[3]}</div>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ function App() {
   return (
     <div id="playground" className="min-w-screen min-h-screen">
       <section className={darkMode ? 'bg-black' : 'bg-white'}>
-        <div className={`p-1 flex ${darkMode ? 'text-yellow-300' : 'text-gray-600'}`}>
+        <div className={`p-1 flex ${darkMode ? 'text-gray-600' : 'text-gray-600'}`}>
           <span className="text-sm font-semibold px-2" onClick={darkMode ? turnOffDarkMode : turnOnDarkMode}>
             {darkMode ? 'Light mode' : 'Dark mode'}
             {' | '}
@@ -58,7 +58,7 @@ function App() {
             <div className="flex justify-center">
               <button
                 onClick={roll}
-                className="bg-red-700 hover:bg-red-700 focus:outline-2 focus:outline-double focus:outline-red-900 text-white font-bold px-4 py-2 rounded-3xl rotate-180"
+                className="bg-red-700 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-3xl rotate-180 focus:ring-4 focus:ring-red-300"
               >
                 Roll Your Valentine
               </button>
@@ -84,7 +84,7 @@ function App() {
             <div className="flex justify-center">
               <button
                 onClick={roll}
-                className="bg-red-700 hover:bg-red-700 focus:outline-2 focus:outline-double focus:outline-red-900 text-white font-bold px-4 py-2 rounded-3xl"
+                className="bg-red-700 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-3xl focus:ring-4 focus:ring-red-300"
               >
                 Roll Your Valentine
               </button>

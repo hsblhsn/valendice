@@ -6,7 +6,7 @@ import Dice from './components/Dice'
 
 function App() {
   const [actionData] = useState([
-    ['Hold', 'Press', 'Touch', 'Kiss', 'Touch', 'Show'],
+    ['Hold', 'Press', 'Touch', 'Kiss', 'Stare', 'Show'],
     ['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Show'],
     ['Lick', 'Suck', 'Blow', 'Kiss', 'Bite', 'Grab'],
   ])

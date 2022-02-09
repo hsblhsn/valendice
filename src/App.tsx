@@ -31,25 +31,6 @@ function App() {
   const roll = useCallback(() => {
     setLeft(Math.floor(Math.random() * 6) + 1)
     setRight(Math.floor(Math.random() * 6) + 1)
-
-    const elem = document.getElementById('playground')
-    if (!elem) {
-      return
-    }
-    const fullScreenElem = elem as HTMLElement & {
-      mozRequestFullScreen(): Promise<void>
-      webkitRequestFullscreen(): Promise<void>
-      msRequestFullscreen(): Promise<void>
-    }
-    if (fullScreenElem.requestFullscreen) {
-      fullScreenElem.requestFullscreen()
-    } else if (fullScreenElem.mozRequestFullScreen) {
-      fullScreenElem.mozRequestFullScreen()
-    } else if (fullScreenElem.webkitRequestFullscreen) {
-      fullScreenElem.webkitRequestFullscreen()
-    } else if (fullScreenElem.msRequestFullscreen) {
-      fullScreenElem.msRequestFullscreen()
-    }
   }, [left, right])
 
   return (

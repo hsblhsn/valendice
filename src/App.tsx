@@ -36,7 +36,7 @@ function App() {
   return (
     <div id="playground" className="min-w-screen min-h-screen">
       <section className={darkMode ? 'bg-black' : 'bg-white'}>
-        <div className={`p-1 flex ${darkMode ? 'text-gray-600' : 'text-gray-600'}`}>
+        <div className={`pt-1 flex ${darkMode ? 'text-gray-600' : 'text-gray-600'}`}>
           <span className="text-sm font-semibold px-2" onClick={darkMode ? turnOffDarkMode : turnOnDarkMode}>
             {darkMode ? 'Light mode' : 'Dark mode'}
             {' | '}

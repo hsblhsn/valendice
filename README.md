@@ -2,7 +2,9 @@
 
 A webpage that does one thing "ValenDice". It is a dice rolling application for two people. Where they get two dice for being a bit extra romantic.
 
-## Screenshot:
+## Screenshot and Demo:
+
+You can check the webpage [here](https://valendice.hsblhsn.me).
 
 ![Screenshot](/docs/preview.png)
 

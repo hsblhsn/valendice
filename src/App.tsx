@@ -4,9 +4,22 @@ import './index.css'
 // @ts-ignore
 import Dice from './components/Dice'
 
+const actions = [
+  ['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Show'],
+  ['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Show'],
+  ['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Show'],
+]
+
+const objects = [
+  ['Thigh', 'Navel', 'Hand', 'Lips', 'Ears', 'Neck'],
+  ['Thigh', 'Navel', 'Hand', 'Lips', 'Ears', 'Neck'],
+  ['Thigh', 'Navel', 'Hand', 'Lips', 'Ears', 'Neck'],
+]
+
 function App() {
   const [left, setLeft] = useState(Math.floor(Math.random() * 6) + 1)
   const [right, setRight] = useState(Math.floor(Math.random() * 6) + 1)
+  const [loveScale, setLoveScale] = useState(0)
   const [darkMode, setDarkMode] = useState(false)
 
   const turnOnDarkMode = useCallback(() => {
@@ -68,20 +81,10 @@ function App() {
             </div>
             <div className="flex py-16">
               <div className="flex-1 flex justify-end">
-                <Dice
-                  values={['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Show']}
-                  dieSize={120}
-                  faceColor="#f1f1f1"
-                  defaultRoll={left}
-                />
+                <Dice values={actions[loveScale]} dieSize={120} faceColor="#f1f1f1" defaultRoll={left} />
               </div>
               <div className="flex-1 flex justify-start">
-                <Dice
-                  values={['Thigh', 'Navel', 'Hand', 'Lips', 'Ears', 'Neck']}
-                  dieSize={120}
-                  faceColor="#f1f1f1"
-                  defaultRoll={right}
-                />
+                <Dice values={objects[loveScale]} dieSize={120} faceColor="#f1f1f1" defaultRoll={right} />
               </div>
             </div>
             <div className="flex justify-center">

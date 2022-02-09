@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import ReactDice from "./ReactDice";
+import React, { Component } from 'react'
+import ReactDice from './ReactDice'
 
 class TestApp extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       outline: false,
-      outlineColor: "#000000",
+      outlineColor: '#000000',
       defaultRoll: 1,
       dieSize: 60,
       disableIndividual: false,
@@ -14,50 +14,50 @@ class TestApp extends Component {
       numDice: 4,
       sides: 6,
       rollTime: 2,
-      faceColor: "#FF00AC",
-      dotColor: "#1eff00",
-      diceTotal: "...",
+      faceColor: '#FF00AC',
+      dotColor: '#1eff00',
+      diceTotal: '...',
       rolling: false,
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.rollDone = this.rollDone.bind(this);
-    this.rollAll = this.rollAll.bind(this);
-    this.showHideControls = this.showHideControls.bind(this);
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.rollDone = this.rollDone.bind(this)
+    this.rollAll = this.rollAll.bind(this)
+    this.showHideControls = this.showHideControls.bind(this)
   }
 
   handleChange(e) {
-    let value = e.target.value;
-    if (e.target.type === "number") {
-      value = parseInt(e.target.value, 10);
+    let value = e.target.value
+    if (e.target.type === 'number') {
+      value = parseInt(e.target.value, 10)
       if (value < e.target.min) {
-        value = e.target.min;
+        value = e.target.min
       } else if (value > e.target.max) {
-        value = e.target.max;
+        value = e.target.max
       }
     }
-    if (e.target.type === "checkbox") {
-      value = !this.state[e.target.name];
+    if (e.target.type === 'checkbox') {
+      value = !this.state[e.target.name]
     }
     this.setState({
       [e.target.name]: value,
-    });
+    })
   }
 
   rollDone(value, values) {
     // console.log('done', value, values)
-    this.setState({ diceTotal: value, rolling: false });
+    this.setState({ diceTotal: value, rolling: false })
   }
 
   rollAll() {
-    this.reactDice.rollAll();
-    this.setState({ rolling: true });
+    this.reactDice.rollAll()
+    this.setState({ rolling: true })
   }
 
   showHideControls() {
     if (window.innerWidth < 576) {
-      document.getElementById("collapseForm").classList.remove("show");
+      document.getElementById('collapseForm').classList.remove('show')
     } else {
-      document.getElementById("collapseForm").classList.add("show");
+      document.getElementById('collapseForm').classList.add('show')
     }
   }
 
@@ -65,9 +65,9 @@ class TestApp extends Component {
     // this.showHideControls()
     // window.addEventListener('resize', this.showHideControls)
     if (window.innerWidth < 576) {
-      document.getElementById("collapseForm").classList.remove("show");
+      document.getElementById('collapseForm').classList.remove('show')
     } else {
-      document.getElementById("collapseForm").classList.add("show");
+      document.getElementById('collapseForm').classList.add('show')
     }
   }
 
@@ -76,8 +76,8 @@ class TestApp extends Component {
   }
 
   render() {
-    let { state } = this;
-    let colorStyle = { height: "2.375rem" };
+    let { state } = this
+    let colorStyle = { height: '2.375rem' }
     return (
       <div className="dice-test">
         <a
@@ -178,7 +178,7 @@ class TestApp extends Component {
                     checked={state.outline}
                     onChange={this.handleChange}
                   />
-                  {"  "}Outline
+                  {'  '}Outline
                 </label>
               </div>
               <div>
@@ -204,7 +204,7 @@ class TestApp extends Component {
                     id="disableIndividual"
                     checked={state.disableIndividual}
                     onChange={this.handleChange}
-                  />{" "}
+                  />{' '}
                   Disable individual roll on click
                 </label>
               </div>
@@ -217,7 +217,7 @@ class TestApp extends Component {
               <button className="btn btn-primary" onClick={this.rollAll}>
                 Roll All
               </button>
-              {"   "} or click individual dice
+              {'   '} or click individual dice
             </h4>
           </div>
 
@@ -226,8 +226,8 @@ class TestApp extends Component {
               Dice Total:
               <span
                 style={{
-                  display: this.state.rolling ? "none" : "inline-block",
-                  paddingLeft: "5px",
+                  display: this.state.rolling ? 'none' : 'inline-block',
+                  paddingLeft: '5px',
                 }}
               >
                 {this.state.diceTotal}
@@ -235,7 +235,7 @@ class TestApp extends Component {
               <div
                 className="sk-cube-grid"
                 style={{
-                  display: this.state.rolling ? "inline-block" : "none",
+                  display: this.state.rolling ? 'inline-block' : 'none',
                 }}
               >
                 <div className="sk-cube sk-cube1" />
@@ -253,16 +253,12 @@ class TestApp extends Component {
         </div>
         <div className="row dice">
           <div className="col">
-            <ReactDice
-              {...this.state}
-              rollDone={this.rollDone}
-              ref={(c) => (this.reactDice = c)}
-            />
+            <ReactDice {...this.state} rollDone={this.rollDone} ref={(c) => (this.reactDice = c)} />
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default TestApp;
+export default TestApp

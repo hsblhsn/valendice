@@ -1,3 +1,3 @@
-declare module "Dice" {
-   export function Dice();
+declare module 'Dice' {
+  export function Dice()
 }

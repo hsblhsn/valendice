@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "npm run build && vite preview",
+    "lint": "prettier --check --write 'src/**/*.{ts,tsx,js,jsx,json}'",
+    "check-lint": "prettier --check --write 'src/**/*.{ts,tsx,js,jsx,json}'"
   },
   "dependencies": {
     "react": "^17.0.2",

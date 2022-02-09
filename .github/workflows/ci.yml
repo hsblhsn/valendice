@@ -1,0 +1,90 @@
+## GitHub Action file for react and vite.
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code."
+        uses: actions/checkout@v2
+
+      - name: "Setup NodeJS."
+        uses: actions/setup-node@v2
+        with:
+          node-version: "17"
+          cache: "npm"
+
+      - name: "Download dependencies."
+        run: make dependencies
+
+      - name: "Build"
+        run: make build
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code."
+        uses: actions/checkout@v2
+
+      - name: "Setup NodeJS."
+        uses: actions/setup-node@v2
+        with:
+          node-version: "17"
+          cache: "npm"
+
+      - name: "Download dependencies."
+        run: make dependencies
+
+      - name: "Test"
+        run: make test
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code."
+        uses: actions/checkout@v2
+
+      - name: "Setup NodeJS."
+        uses: actions/setup-node@v2
+        with:
+          node-version: "17"
+          cache: "npm"
+
+      - name: "Download dependencies."
+        run: make dependencies
+
+      - name: "Install Prettier."
+        run: npm install -g prettier
+
+      - name: "Lint (Prettier)"
+        run: npm run check-lint
+
+  docker:
+    name: Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code."
+        uses: actions/checkout@v2
+
+      - name: "Download dependencies."
+        run: make dependencies
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: "Docker build"
+        run: make docker-build TAG=ci-testing
+
+      - name: "Docker dry run"
+        run: make docker-dryrun TAG=ci-testing

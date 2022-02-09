@@ -1,89 +1,76 @@
-import React, { Component } from "react";
-import Die from "./Die";
-import "./styles.scss";
+import React, { Component } from 'react'
+import Die from './Die'
+import './styles.scss'
 
 export default class DiceContainer extends Component {
   constructor(props) {
-    super(props);
-    let diceValues = [];
+    super(props)
+    let diceValues = []
     for (let i = 0; i < props.numDice; i++) {
-      diceValues[i] = 6;
+      diceValues[i] = 6
     }
     this.state = {
       totalValue: props.numDice * 6,
       diceValues,
-    };
-    this.dice = [];
-    this.rollCount = 0;
-    this.values = props.values || [
-      "one",
-      "two",
-      "three",
-      "four",
-      "five",
-      "six",
-    ];
+    }
+    this.dice = []
+    this.rollCount = 0
+    this.values = props.values || ['one', 'two', 'three', 'four', 'five', 'six']
 
-    this.rollDone = this.rollDone.bind(this);
-    this.rollAll = this.rollAll.bind(this);
-    this.getRollResults = this.getRollResults.bind(this);
+    this.rollDone = this.rollDone.bind(this)
+    this.rollAll = this.rollAll.bind(this)
+    this.getRollResults = this.getRollResults.bind(this)
   }
 
   rollAll(values = []) {
-    this.rollCount = 0;
-    let index = 0;
+    this.rollCount = 0
+    let index = 0
     for (let die of this.dice) {
       if (die !== null) {
-        this.rollCount++;
-        die.rollDie(values[index]);
-        index++;
+        this.rollCount++
+        die.rollDie(values[index])
+        index++
       }
     }
   }
 
   rollDone() {
-    this.rollCount--;
+    this.rollCount--
     if (this.rollCount <= 0) {
-      this.getRollResults();
+      this.getRollResults()
     }
   }
 
   getRollResults() {
-    let totalValue = 0;
-    let diceValues = [];
+    let totalValue = 0
+    let diceValues = []
     for (let die of this.dice) {
       if (die !== null) {
-        let value = die.getValue();
-        diceValues.push(value);
-        totalValue += value;
+        let value = die.getValue()
+        diceValues.push(value)
+        totalValue += value
       }
     }
-    this.setState({ totalValue, diceValues });
-    this.props.totalCb(totalValue, diceValues);
+    this.setState({ totalValue, diceValues })
+    this.props.totalCb(totalValue, diceValues)
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.numDice !== this.props.numDice) {
-      this.getRollResults();
+      this.getRollResults()
     }
   }
 
   render() {
-    let { props } = this;
-    let dice = [];
-    this.dice.splice(props.numDice, 100 - props.numDice);
+    let { props } = this
+    let dice = []
+    this.dice.splice(props.numDice, 100 - props.numDice)
     for (let i = 0; i < props.numDice; i++) {
       dice.push(
-        <Die
-          {...props}
-          key={i}
-          rollDone={this.rollDone}
-          ref={(die) => (this.dice[i] = die)}
-          values={props.values}
-        />
-      );
+        <Die {...props} key={i} rollDone={this.rollDone} ref={(die) => (this.dice[i] = die)} values={props.values} />
+      )
     }
 
-    return <div className="dice">{dice}</div>;
+    return <div className="dice">{dice}</div>
   }
 }

@@ -36,19 +36,19 @@ function App() {
   return (
     <div id="playground" className="min-w-screen min-h-screen">
       <section className={darkMode ? 'bg-black' : 'bg-white'}>
-        <div className={`pt-1 flex ${darkMode ? 'text-gray-600' : 'text-gray-600'}`}>
-          <span className="text-sm font-semibold px-2" onClick={darkMode ? turnOffDarkMode : turnOnDarkMode}>
+        <div className={`pt-1 flex text-xs sm:text-sm ${darkMode ? 'text-gray-600' : 'text-gray-600'}`}>
+          <span className="font-semibold px-1" onClick={darkMode ? turnOffDarkMode : turnOnDarkMode}>
             {darkMode ? 'Light mode' : 'Dark mode'}
             {' | '}
           </span>
-          <span className="text-sm font-semibold px-2">
+          <span className="font-semibold px-1">
             follow me:{' '}
             <a href="https://instagram.com/hsblhsn" target="_blank" className="underline">
               @hsblhsn
             </a>
             {' | '}
           </span>
-          <span className="text-sm font-semibold px-2">
+          <span className="font-semibold px-1">
             source code:{' '}
             <a href="https://github.com/hsblhsn/valendice" target="_blank" className="underline">
               GitHub

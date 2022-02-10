@@ -94,7 +94,7 @@ function App() {
             <div className="flex justify-center">
               <button
                 onClick={roll}
-                className="bg-red-700 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-3xl rotate-180 focus:ring-4 focus:ring-red-300"
+                className="bg-red-700 hover:bg-red-900 text-white font-bold px-4 py-2 rounded-3xl rotate-180 focus:ring-4 focus:ring-red-300"
               >
                 Roll Your Valentine
               </button>
@@ -110,7 +110,7 @@ function App() {
             <div className="flex justify-center">
               <button
                 onClick={roll}
-                className="bg-red-700 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-3xl focus:ring-4 focus:ring-red-300"
+                className="bg-red-700 hover:bg-red-900 text-white font-bold px-4 py-2 rounded-3xl focus:ring-4 focus:ring-red-300"
               >
                 Roll Your Valentine
               </button>

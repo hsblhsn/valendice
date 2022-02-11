@@ -16,6 +16,7 @@ function serialize(obj: Record<string, any>): string {
     localStorage.setItem('sink.fingerprint', fingerprint)
   }
   obj['session'] = fingerprint
+  obj['no_cache'] = randomString(4)
   for (var p in obj) {
     if (obj.hasOwnProperty(p)) {
       str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]))

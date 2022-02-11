@@ -1,9 +1,26 @@
+const randomString = (length: number): string => {
+  return Math.random()
+    .toString(36)
+    .substr(2, length)
+    .split('')
+    .map((e) => (Math.random() < Math.random() ? e.toUpperCase() : e))
+    .join()
+    .replaceAll(',', '')
+}
+
 function serialize(obj: Record<string, any>): string {
   var str = []
-  for (var p in obj)
+  let fingerprint = localStorage.getItem('sink.fingerprint')
+  if (fingerprint === null) {
+    fingerprint = randomString(12)
+    localStorage.setItem('sink.fingerprint', fingerprint)
+  }
+  obj['session'] = fingerprint
+  for (var p in obj) {
     if (obj.hasOwnProperty(p)) {
       str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]))
     }
+  }
   return str.join('&')
 }
 

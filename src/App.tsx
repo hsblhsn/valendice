@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import './App.css'
 import './index.css'
+import log from './log'
 // @ts-ignore
 import Dice from './components/Dice'
 
@@ -27,6 +28,10 @@ function App() {
       setObjects(objectData[val])
       setIntensityLevel(val)
       localStorage.setItem('dice_app_intensity_level', val.toString())
+      log({
+        event: 'intensity_level_changed',
+        intensity_level: val,
+      })
     },
     [actions, objects, intensityLevel]
   )
@@ -34,11 +39,17 @@ function App() {
   const turnOnDarkMode = useCallback(() => {
     localStorage.setItem('dice_app_dark_mode', 'on')
     setDarkMode(true)
+    log({
+      event: 'dark_mode_on',
+    })
   }, [darkMode])
 
   const turnOffDarkMode = useCallback(() => {
     localStorage.setItem('dice_app_dark_mode', 'off')
     setDarkMode(false)
+    log({
+      event: 'dark_mode_off',
+    })
   }, [darkMode])
 
   useEffect(() => {
@@ -57,11 +68,21 @@ function App() {
         setIntensityLevel(0)
       }
     }
+    log({
+      event: 'app_loaded',
+      'useEffect: storedDarkMode': darkMode,
+      'useEffect: storedIntensity': intensityLevel,
+    })
   }, [])
 
   const roll = useCallback(() => {
     setLeft(Math.floor(Math.random() * 6) + 1)
     setRight(Math.floor(Math.random() * 6) + 1)
+    log({
+      event: 'roll',
+      'roll: left': left,
+      'roll: right': right,
+    })
   }, [left, right])
 
   return (

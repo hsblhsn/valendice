@@ -26,6 +26,9 @@ function App() {
     (val: number) => {
       setActions(actionData[val])
       setObjects(objectData[val])
+      if (val > 2) {
+        val = 2
+      }
       setIntensityLevel(val)
       localStorage.setItem('dice_app_intensity_level', val.toString())
       log({

@@ -9,12 +9,12 @@ function App() {
   const [actionData] = useState([
     ['Hold', 'Press', 'Touch', 'Kiss', 'Stare', 'Show'],
     ['Lick', 'Suck', 'Blow', 'Kiss', 'Touch', 'Show'],
-    ['Lick', 'Suck', 'Blow', 'Kiss', 'Bite', 'Grab'],
+    ['Lick', 'Suck', 'Lick', 'Kiss', 'Bite', 'Grab'],
   ])
   const [objectData] = useState([
     ['Thigh', 'Navel', 'Hands', 'Lips', 'Ears', 'Neck'],
     ['Thigh', 'Navel', 'Hands', 'Lips', 'Legs', 'Neck'],
-    ['Chest', 'Boobs', 'Belly', 'Ass', '***', 'Tongue'],
+    ['Boobs', 'Boobs', 'Belly', 'Ass', '***', 'Tongue'],
   ])
   const [left, setLeft] = useState(Math.floor(Math.random() * 6) + 1)
   const [right, setRight] = useState(Math.floor(Math.random() * 6) + 1)

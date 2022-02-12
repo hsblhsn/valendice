@@ -62,10 +62,10 @@ function App() {
     }
     if (storedIntensity) {
       try {
-        setIntensityLevel(parseInt(storedIntensity))
+        setIntensity(parseInt(storedIntensity))
       } catch (err) {
         console.error(err)
-        setIntensityLevel(0)
+        setIntensity(0)
       }
     }
     log({
@@ -73,7 +73,7 @@ function App() {
       'useEffect: storedDarkMode': darkMode,
       'useEffect: storedIntensity': intensityLevel,
     })
-  }, [])
+  }, [intensityLevel, darkMode])
 
   const roll = useCallback(() => {
     setLeft(Math.floor(Math.random() * 6) + 1)
